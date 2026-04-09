@@ -1,0 +1,11 @@
+# Jupyter Book 2 / MyST — See https://mystmd.org/guide/
+version: 1
+project:
+  title: NITIC Hands-On Deep Learning
+  description: 深層学習ハンズオンの教材サイトです。
+  github: https://github.com/rsimd/NITIC-HandsOnDeepLearning
+  toc:
+    - file: notebooks/introduction.md
+    - file: notebooks/python.ipynb
+site:
+  template: book-theme

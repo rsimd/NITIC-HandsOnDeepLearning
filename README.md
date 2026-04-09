@@ -1,0 +1,36 @@
+> This project was created by the AI code editor “Cursor”.
+> The large language model (LLM) used by Cursor follows the model selected in your Cursor settings.
+> Detailed specifications are documented in [specifications.md](specifications.md).
+
+# NITIC Hands-On Deep Learning
+
+深層学習ハンズオン用の教材リポジトリです。`notebooks/` の内容を [Jupyter Book](https://jupyterbook.org/) 2（[MyST](https://mystmd.org/)）でサイト化し、[GitHub Pages](https://pages.github.com/) で公開します。
+
+## リポジトリ
+
+ソース: [github.com/rsimd/NITIC-HandsOnDeepLearning](https://github.com/rsimd/NITIC-HandsOnDeepLearning)
+
+## ローカルでのビルド
+
+依存関係のインストールとビルドは `uv` で行います。
+
+```bash
+uv sync --all-groups
+uv run jupyter-book build --site
+```
+
+HTML は `_build/site/public` に出力されます。
+
+## GitHub Pages の有効化
+
+初回のみ、リポジトリの **Settings → Pages** で **Source** を **GitHub Actions** に設定してください。`main` ブランチへの push で `.github/workflows/deploy-jupyter-book.yml` が走り、サイトが更新されます。
+
+公開 URL は通常 `https://rsimd.github.io/NITIC-HandsOnDeepLearning/` になります（ユーザー名・リポジトリ名に依存します）。
+
+## 教員用ノートブックについて
+
+`notebooks-instructor/` はローカル専用であり、`.gitignore` により Git の追跡対象外です。リモートには含まれません。
+
+## 詳細
+
+再現手順・構成の詳細は [specifications.md](specifications.md) を参照してください。
