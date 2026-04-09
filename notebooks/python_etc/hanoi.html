@@ -158,11 +158,19 @@ href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.cs
 
 <style>
 .animation {
-    display: inline-block;
+    display: block;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
     text-align: center;
 }
+.animation img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
 input[type=range].anim-slider {
-    width: 374px;
+    width: min(374px, 100%);
     margin-left: auto;
     margin-right: auto;
 }
