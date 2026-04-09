@@ -11,7 +11,7 @@
 |------|------|
 | 教材本文 | `notebooks/`（`introduction.md`, `python.ipynb` ほか） |
 | Jupyter Book 設定 | リポジトリ直下の `myst.yml`（MyST / Jupyter Book 2） |
-| ビルド成果物 | `_build/site/public`（ローカル・CI 共通） |
+| ビルド成果物 | `_build/html`（`jupyter-book build --html`、GitHub Pages 用） |
 
 `notebooks-instructor/` は教員用のため **Git の追跡対象外**（`.gitignore`）とする。
 
@@ -21,10 +21,10 @@
 
 ```bash
 uv sync --all-groups
-uv run jupyter-book build --site
+BASE_URL=/NITIC-HandsOnDeepLearning uv run jupyter-book build --html
 ```
 
-生成物は `_build/site/public` に出力される。プレビューは任意の静的ファイルサーバで `public` を配信する。
+生成物は `_build/html` に出力される（ルートに `index.html` がある）。GitHub Pages と同じパス前提で見る場合は `BASE_URL` をリポジトリ名に合わせる。プレビューは `_build/html` を静的サーバで配信する。
 
 ## GitHub Pages
 
@@ -33,6 +33,8 @@ uv run jupyter-book build --site
 3. `main` へ push すると `.github/workflows/deploy-jupyter-book.yml` が実行され、サイトがデプロイされる。
 
 プロジェクトリポジトリ（`*.github.io` 以外）ではビルド時に `BASE_URL` にリポジトリ名が渡され、アセットパスが正しく解決される（ワークフロー内の `env` を参照）。
+
+MyST の静的出力には `build/_assets` のように先頭が `_` のディレクトリが含まれる。ブランチ直デプロイでは Jekyll がこれらを除外することがあるため、CI では成果物ルートに **`.nojekyll`** を置いている（Actions の artifact デプロイでも念のため有効）。
 
 ## 参考
 

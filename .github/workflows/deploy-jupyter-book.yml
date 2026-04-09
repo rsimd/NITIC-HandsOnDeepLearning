@@ -42,6 +42,10 @@ jobs:
       - name: Build Jupyter Book site
         run: uv run jupyter-book build --html --ci
 
+      # Jekyll が _ で始まるパスを落とすため build/_assets 等が 404 になるのを防ぐ
+      - name: Add .nojekyll for GitHub Pages
+        run: touch _build/html/.nojekyll
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _build/html

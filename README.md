@@ -16,10 +16,10 @@
 
 ```bash
 uv sync --all-groups
-uv run jupyter-book build --site
+BASE_URL=/NITIC-HandsOnDeepLearning uv run jupyter-book build --html
 ```
 
-HTML は `_build/site/public` に出力されます。
+HTML は `_build/html` に出力されます（`index.html` あり。`--site` だけでは Pages で 404 になります）。
 
 ## GitHub Pages の有効化
 
