@@ -2,7 +2,7 @@
 > The large language model (LLM) used by Cursor follows the model selected in your Cursor settings.
 > Detailed specifications are documented in [specifications.md](specifications.md).
 
-# NITIC Deep Learning
+# NITIC: Hands-on Deep Learning
 
 深層学習の教材リポジトリです。`notebooks/` の内容を [Jupyter Book](https://jupyterbook.org/) 2（[MyST](https://mystmd.org/)）でサイト化し、[GitHub Pages](https://pages.github.com/) で公開します。
 

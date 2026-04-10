@@ -1,7 +1,7 @@
 # Jupyter Book 2 / MyST — See https://mystmd.org/guide/
 version: 1
 project:
-  title: NITIC Deep Learning
+  title: "NITIC: Hands-on Deep Learning"
   description: 深層学習の教材サイトです。
   github: https://github.com/rsimd/NITIC-DeepLearning
   toc:

@@ -977,7 +977,7 @@ wheels = [
 ]
 
 [[package]]
-name = "nitic-deep-learning"
+name = "nitic-hands-on-deep-learning"
 version = "0.1.0"
 source = { virtual = "." }
 dependencies = [

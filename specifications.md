@@ -1,4 +1,4 @@
-# NITIC Deep Learning — 仕様・再現手順
+# NITIC: Hands-on Deep Learning — 仕様・再現手順
 
 ## リポジトリ
 

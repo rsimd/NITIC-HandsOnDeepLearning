@@ -1,7 +1,7 @@
 [project]
-name = "nitic-deep-learning"
+name = "nitic-hands-on-deep-learning"
 version = "0.1.0"
-description = "NITIC Deep Learning course materials (Jupyter Book)"
+description = "NITIC: Hands-on Deep Learning — course materials (Jupyter Book)"
 readme = "README.md"
 requires-python = ">=3.12.2"
 dependencies = [
