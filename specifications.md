@@ -2,10 +2,10 @@
 
 ## リポジトリ
 
-- GitHub: <https://github.com/rsimd/NITIC-DeepLearning>
-- 公開サイト（GitHub Pages 有効化後）: `https://rsimd.github.io/NITIC-DeepLearning/`
+- GitHub: <https://github.com/rsimd/NITIC-HandsOnDeepLearning>
+- 公開サイト（GitHub Pages 有効化後）: `https://rsimd.github.io/NITIC-HandsOnDeepLearning/`
 
-旧リポジトリ名 `NITIC-HandsOnDeepLearning` から移行する場合は、GitHub の **Settings → General → Repository name** で名前を変更し、ローカルの `git remote set-url origin <新しいURL>` を更新する。
+以前 `NITIC-DeepLearning` を origin にしていた場合は、`git remote set-url origin https://github.com/rsimd/NITIC-HandsOnDeepLearning.git` に更新する。
 
 ## 構成
 
@@ -23,14 +23,14 @@
 
 ```bash
 uv sync --all-groups
-BASE_URL=/NITIC-DeepLearning uv run jupyter-book build --html
+BASE_URL=/NITIC-HandsOnDeepLearning uv run jupyter-book build --html
 mkdir -p _build/html/python_etc
 cp notebooks/python_etc/*.html _build/html/python_etc/
 ```
 
 生成物は `_build/html` に出力される（ルートに `index.html` がある）。GitHub Pages と同じパス前提で見る場合は `BASE_URL` をリポジトリ名に合わせる。プレビューは `_build/html` を静的サーバで配信する。
 
-`notebooks/python.ipynb` 内の iframe は、公開サイトではベースパス直下の `python_etc/` を参照する（例: `/NITIC-DeepLearning/python_etc/hanoi.html`）。上記の `cp` でビルド成果物に置く。CI でも同様の同期を行う。
+`notebooks/python.ipynb` 内の iframe は、公開サイトではベースパス直下の `python_etc/` を参照する（例: `/NITIC-HandsOnDeepLearning/python_etc/hanoi.html`）。上記の `cp` でビルド成果物に置く。CI でも同様の同期を行う。
 
 ## GitHub Pages
 

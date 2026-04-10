@@ -3,7 +3,7 @@ version: 1
 project:
   title: "NITIC: Hands-on Deep Learning"
   description: 深層学習の教材サイトです。
-  github: https://github.com/rsimd/NITIC-DeepLearning
+  github: https://github.com/rsimd/NITIC-HandsOnDeepLearning
   toc:
     - file: notebooks/introduction.md
     - file: notebooks/python.ipynb
