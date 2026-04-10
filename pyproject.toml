@@ -1,10 +1,15 @@
 [project]
-name = "nitic-hands-on-deep-learning"
+name = "nitic-deep-learning"
 version = "0.1.0"
-description = "NITIC deep learning hands-on materials (Jupyter Book)"
+description = "NITIC Deep Learning course materials (Jupyter Book)"
 readme = "README.md"
 requires-python = ">=3.12.2"
-dependencies = []
+dependencies = [
+    "jaxtyping>=0.3.9",
+    "matplotlib>=3.10.8",
+    "matplotlib-fontja>=1.1.0",
+    "numpy>=2.4.4",
+]
 
 [dependency-groups]
 dev = [
