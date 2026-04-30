@@ -15,5 +15,8 @@ _build/
 # Instructor-only materials (not published)
 notebooks-instructor/
 
+# Instructor notebooks (local only; excluded from remote history)
+instructors_notebooks/
+
 # macOS
 .DS_Store
