@@ -7,7 +7,8 @@ project:
   toc:
     - file: notebooks/introduction.md
     - file: notebooks/python.ipynb
-    - file: notebooks/numpy_basic_functions.ipynb
+    - file: notebooks/numpy_introduction.ipynb
     - file: notebooks/numpy_ufunc.ipynb
+    - file: notebooks/pytorch_introduction.ipynb
 site:
   template: book-theme
