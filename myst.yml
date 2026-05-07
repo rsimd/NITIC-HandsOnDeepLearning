@@ -9,6 +9,9 @@ project:
     - file: notebooks/python.ipynb
     - file: notebooks/numpy_introduction.ipynb
     - file: notebooks/numpy_ufunc.ipynb
+    - file: notebooks/neural_network_introduction.ipynb
+    - file: notebooks/perceptron.ipynb
+    - file: notebooks/multi_layer_perceptron.ipynb
     - file: notebooks/pytorch_introduction.ipynb
 site:
   template: book-theme
