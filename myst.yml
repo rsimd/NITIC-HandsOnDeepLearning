@@ -12,13 +12,16 @@ project:
     - file: notebooks/neural_network_introduction.ipynb
     - file: notebooks/perceptron.ipynb
     - file: notebooks/mlp.ipynb
-    - file: notebooks/mlp_torch.ipynb
     - file: notebooks/pytorch_introduction.ipynb
+    - file: notebooks/mlp_torch.ipynb
 site:
   template: book-theme
   options:
+    logo_text: "NITIC: Hands-on Deep Learning"
     style: styles/site.css
   parts:
     navbar_end: |
       <a class="hdl-sidebar-toggle hdl-sidebar-toggle-left" href="javascript:void 0" role="button" title="Toggle Table of Contents">Table of Contents</a>
       <a class="hdl-sidebar-toggle hdl-sidebar-toggle-right" href="javascript:void 0" role="button" title="Toggle On this page">On this page</a>
+    primary_sidebar_footer: |
+      <span class="hdl-sidebar-brand">NITIC: Hands-on Deep Learning</span>
