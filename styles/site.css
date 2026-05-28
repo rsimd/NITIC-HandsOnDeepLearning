@@ -1,0 +1,224 @@
+/* Let the article column grow with the browser width and make both sidebars collapsible. */
+:root {
+  --hdl-primary-sidebar-width: 18rem;
+  --hdl-page-outline-width: 14rem;
+  --hdl-sidebar-tab-height: 2.25rem;
+  --hdl-sidebar-tab-width: 8.5rem;
+  --hdl-sidebar-tab-edge-offset: -3.125rem;
+  --hdl-sidebar-tab-top: calc(50vh - 1.125rem);
+  --hdl-viewport-scrollbar-width: calc(100vw - 100%);
+}
+
+body.hdl-sidebar-left-collapsed {
+  --hdl-primary-sidebar-width: 0rem;
+}
+
+body.hdl-sidebar-right-collapsed {
+  --hdl-page-outline-width: 0rem;
+}
+
+.article-grid {
+  grid-template-columns:
+    [screen-start screen-inset-start] 0.5rem
+    [page-start page-inset-start body-outset-start body-start gutter-left-start body-inset-start middle-start]
+    minmax(0, 1fr)
+    minmax(0, 1fr)
+    [gutter-left-end] minmax(0, 1fr)
+    minmax(0, 1fr)
+    [gutter-right-start] minmax(0, 1fr)
+    minmax(0, 1fr)
+    [middle-end body-inset-end body-end gutter-right-end body-outset-end page-inset-end page-end]
+    0.5rem [screen-inset-end screen-end];
+}
+
+@media (min-width: 768px) {
+  .article-grid {
+    grid-template-columns:
+      [screen-start] 0.25rem
+      [screen-inset-start page-start page-inset-start body-outset-start] minmax(1rem, 3vw)
+      [body-start gutter-left-start] 1rem
+      [body-inset-start] minmax(0, 1fr)
+      [middle-start] minmax(0, 1fr)
+      [gutter-left-end] minmax(0, 1fr)
+      minmax(0, 1fr)
+      [gutter-right-start] minmax(0, 1fr)
+      [middle-end] minmax(0, 1fr)
+      [body-inset-end] 1rem
+      [body-end gutter-right-end] minmax(1rem, 3vw)
+      [body-outset-end page-inset-end page-end screen-inset-end]
+      0.25rem [screen-end];
+  }
+}
+
+@media (min-width: 1024px) {
+  .article-grid {
+    grid-template-columns:
+      [screen-start] 0.25rem
+      [screen-inset-start page-start] 1.5rem
+      [page-inset-start body-outset-start] 1.5rem
+      [body-start gutter-left-start] 1rem
+      [body-inset-start] minmax(0, 1fr)
+      [middle-start] minmax(0, 1fr)
+      [gutter-left-end] minmax(0, 1fr)
+      minmax(0, 1fr)
+      [gutter-right-start] minmax(0, 1fr)
+      [middle-end] minmax(0, 1fr)
+      [body-inset-end] 1rem
+      [body-end gutter-right-end] 1.5rem
+      [body-outset-end] var(--hdl-page-outline-width)
+      [page-inset-end] 1.5rem
+      [page-end] 1.5rem
+      [screen-inset-end] 0.25rem [screen-end];
+  }
+}
+
+@media (min-width: 1280px) {
+  .article-grid,
+  .xl\:article-grid {
+    grid-template-columns:
+      [screen-start] 0.25rem
+      [screen-inset-start] 1rem
+      [page-start] 0
+      [page-inset-start] var(--hdl-primary-sidebar-width)
+      [body-outset-start] 1.5rem
+      [body-start gutter-left-start] 1rem
+      [body-inset-start] minmax(0, 1fr)
+      [middle-start] minmax(0, 1fr)
+      [gutter-left-end] minmax(0, 1fr)
+      minmax(0, 1fr)
+      [gutter-right-start] minmax(0, 1fr)
+      [middle-end] minmax(0, 1fr)
+      [body-inset-end] 1rem
+      [body-end gutter-right-end] 1.5rem
+      [body-outset-end] var(--hdl-page-outline-width)
+      [page-inset-end] 1.5rem
+      [page-end] 1rem
+      [screen-inset-end] 0.25rem [screen-end];
+  }
+}
+
+@media (min-width: 1536px) {
+  .article-grid,
+  .xl\:article-grid {
+    grid-template-columns:
+      [screen-start] 0.5rem
+      [screen-inset-start] 1rem
+      [page-start] 0
+      [page-inset-start] var(--hdl-primary-sidebar-width)
+      [body-outset-start] 1.5rem
+      [body-start gutter-left-start] 1rem
+      [body-inset-start] minmax(0, 1fr)
+      [middle-start] minmax(0, 1fr)
+      [gutter-left-end] minmax(0, 1fr)
+      minmax(0, 1fr)
+      [gutter-right-start] minmax(0, 1fr)
+      [middle-end] minmax(0, 1fr)
+      [body-inset-end] 1rem
+      [body-end gutter-right-end] 1.5rem
+      [body-outset-end] var(--hdl-page-outline-width)
+      [page-inset-end] 1.5rem
+      [page-end] 1rem
+      [screen-inset-end] 0.5rem [screen-end];
+  }
+}
+
+.myst-navbar-end:has(.hdl-sidebar-toggle) > p {
+  display: contents;
+}
+
+.hdl-sidebar-toggle {
+  position: fixed;
+  z-index: 45;
+  top: var(--hdl-sidebar-tab-top);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--hdl-sidebar-tab-width);
+  height: var(--hdl-sidebar-tab-height);
+  padding: 0 0.75rem;
+  border: 1px solid #94a3b8;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.16);
+  color: #0f172a;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.1;
+  transform-origin: center center;
+  transition:
+    background-color 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease;
+}
+
+.myst-primary-sidebar-navbar-end:has(.hdl-sidebar-toggle) {
+  display: none !important;
+}
+
+.myst-primary-sidebar-navbar-end .hdl-sidebar-toggle,
+.hdl-sidebar-toggle .link-icon {
+  display: none !important;
+}
+
+.hdl-sidebar-toggle .link-text {
+  white-space: nowrap !important;
+}
+
+.hdl-sidebar-toggle,
+.hdl-sidebar-toggle:link,
+.hdl-sidebar-toggle:visited {
+  text-decoration: none !important;
+  white-space: nowrap !important;
+}
+
+.hdl-sidebar-toggle:hover,
+.hdl-sidebar-toggle:focus-visible {
+  border-color: #2563eb;
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+.hdl-sidebar-toggle:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.32);
+  outline-offset: 2px;
+}
+
+.hdl-sidebar-toggle-left {
+  left: var(--hdl-sidebar-tab-edge-offset);
+  transform: rotate(-90deg);
+}
+
+.hdl-sidebar-toggle-right {
+  right: calc(var(--hdl-sidebar-tab-edge-offset) - var(--hdl-viewport-scrollbar-width));
+  transform: rotate(90deg);
+}
+
+body.hdl-sidebar-left-collapsed .myst-primary-sidebar,
+body.hdl-sidebar-right-collapsed article.article > .lg\:col-margin-right,
+body.hdl-sidebar-right-collapsed .hdl-page-outline {
+  display: none !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+}
+
+.myst-navbar-end:has(.hdl-sidebar-toggle) {
+  display: flex !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  .hdl-sidebar-toggle {
+    border-color: #475569;
+    background: rgba(28, 25, 23, 0.96);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    color: #f8fafc;
+  }
+
+  .hdl-sidebar-toggle:hover,
+  .hdl-sidebar-toggle:focus-visible {
+    border-color: #60a5fa;
+    background: #1e293b;
+    color: #bfdbfe;
+  }
+}

@@ -24,13 +24,16 @@
 ```bash
 uv sync --all-groups
 BASE_URL=/NITIC-HandsOnDeepLearning uv run jupyter-book build --html
-mkdir -p _build/html/python_etc
+mkdir -p _build/html/python_etc _build/html/demos _build/html/slides
 cp notebooks/python_etc/*.html _build/html/python_etc/
+cp demos/*.html _build/html/demos/
+cp slides/*.html _build/html/slides/
+BASE_URL=/NITIC-HandsOnDeepLearning uv run python scripts/postprocess_html.py
 ```
 
 生成物は `_build/html` に出力される（ルートに `index.html` がある）。GitHub Pages と同じパス前提で見る場合は `BASE_URL` をリポジトリ名に合わせる。プレビューは `_build/html` を静的サーバで配信する。
 
-`notebooks/python.ipynb` 内の iframe は、公開サイトではベースパス直下の `python_etc/` を参照する（例: `/NITIC-HandsOnDeepLearning/python_etc/hanoi.html`）。上記の `cp` でビルド成果物に置く。CI でも同様の同期を行う。
+`notebooks/python.ipynb` 内の iframe は、公開サイトではベースパス直下の `python_etc/` を参照する（例: `/NITIC-HandsOnDeepLearning/python_etc/hanoi.html`）。`notebooks/mlp_torch.ipynb` はベースパス直下の `demos/` と `slides/` を参照する。上記の `cp` でビルド成果物に置く。`scripts/postprocess_html.py` は左右目次の開閉用 JS を各ページに注入する。CI でも同様の同期と後処理を行う。
 
 ## GitHub Pages
 

@@ -42,12 +42,16 @@ jobs:
       - name: Build Jupyter Book site
         run: uv run jupyter-book build --html --ci
 
-      # ノート内 iframe の相対パス python_etc/*.html は、ページ URL が /…/python のとき
-      # /…/python_etc/… に解決される。MyST は既定でこれらを成果物に含めないため手で同期する。
-      - name: Sync python_etc HTML for iframes
+      # ノート内 iframe から参照する単体 HTML は、MyST が既定では成果物に含めないため手で同期する。
+      - name: Sync standalone HTML for iframes
         run: |
-          mkdir -p _build/html/python_etc
+          mkdir -p _build/html/python_etc _build/html/demos _build/html/slides
           cp notebooks/python_etc/*.html _build/html/python_etc/
+          cp demos/*.html _build/html/demos/
+          cp slides/*.html _build/html/slides/
+
+      - name: Inject site interactions
+        run: uv run python scripts/postprocess_html.py
 
       # Jekyll が _ で始まるパスを落とすため build/_assets 等が 404 になるのを防ぐ
       - name: Add .nojekyll for GitHub Pages

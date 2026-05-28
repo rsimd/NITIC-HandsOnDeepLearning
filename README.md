@@ -19,11 +19,14 @@
 ```bash
 uv sync --all-groups
 BASE_URL=/NITIC-HandsOnDeepLearning uv run jupyter-book build --html
-mkdir -p _build/html/python_etc
+mkdir -p _build/html/python_etc _build/html/demos _build/html/slides
 cp notebooks/python_etc/*.html _build/html/python_etc/
+cp demos/*.html _build/html/demos/
+cp slides/*.html _build/html/slides/
+BASE_URL=/NITIC-HandsOnDeepLearning uv run python scripts/postprocess_html.py
 ```
 
-HTML は `_build/html` に出力されます（`index.html` あり。`--site` だけでは Pages で 404 になります）。ノート内の `iframe` 用 HTML は上記 `cp` で成果物に含めます（CI でも同期します）。
+HTML は `_build/html` に出力されます（`index.html` あり。`--site` だけでは Pages で 404 になります）。ノート内の `iframe` 用 HTML やスライド HTML は上記 `cp` で成果物に含めます（CI でも同期します）。`scripts/postprocess_html.py` は左右目次の開閉用 JS を各ページに注入します。
 
 ## GitHub Pages の有効化
 
